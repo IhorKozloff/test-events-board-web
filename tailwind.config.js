@@ -4,8 +4,21 @@ module.exports = {
     theme: {
         extend: {},
         colors: {
-          'headerTertiary': '#165081'
-      },
+            'headerTertiary': '#165081',
+            'eventDescription': '#5e5e5e',
+        },
     },
-    plugins: [],
+    plugins: [
+        function ({ addUtilities }) {
+            addUtilities({
+                '.no-scrollbar': {
+                    '-ms-overflow-style': 'none',
+                    'scrollbar-width': 'none',
+                },
+                '.no-scrollbar::-webkit-scrollbar': {
+                    display: 'none',
+                },
+            });
+        },
+    ],
 };

@@ -4,7 +4,7 @@ export interface IEvent {
     id: string;
     title: string;
     description: string;
-    eventDate: number;
+    eventDate: string;
     organizer: string;
     event_available_status: 'available' | 'expired';
 }
@@ -21,15 +21,21 @@ export const eventsSlice = createSlice({
     name: 'event',
     initialState,
     reducers: {
-        saveEvents: (state, action: PayloadAction<IEvent[]>) => {
+        addEvents: (state, action: PayloadAction<IEvent[]>) => {
             state.list = [
                 ...state.list,
                 ...action.payload,
             ];
         },
+        rewriteEvents: (state, action: PayloadAction<IEvent[]>) => {
+            state.list = action.payload;
+        },
+        removeAllEvents: (state) => {
+            state.list = initialState.list;
+        }
     }
 
 });
 
-export const { saveEvents } = eventsSlice.actions;
+export const { addEvents, removeAllEvents, rewriteEvents } = eventsSlice.actions;
 export default eventsSlice.reducer;

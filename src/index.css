@@ -10,9 +10,11 @@
       @apply text-3xl font-extrabold
   }
   h3 {
-      @apply text-xl font-bold text-headerTertiary
+      @apply text-lg font-medium text-headerTertiary
   }
-  h4 {
-      @apply text-xl font-bold
-  }
+}
+
+.container {
+    width: 1280px;
+    border: 1px solid green;
 }

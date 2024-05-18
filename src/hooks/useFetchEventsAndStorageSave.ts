@@ -1,13 +1,19 @@
 import { fetchEvents } from '../API/eventsAPI';
-import { saveEvents } from '../storage/slices/eventsSlice';
+import { addEvents, rewriteEvents } from '../storage/slices/eventsSlice';
+import { IEventsRequestParams } from '../types';
 import { useAppDispatch } from './useSelectorAndDispatch';
 
 export const useFetchEventsAndStorageSave = () => {
     const dispatch = useAppDispatch();
-    return async () => {
-        const events = await fetchEvents();
+
+    return async (params?: IEventsRequestParams, settings?: {rewrite?: boolean}) => {
+        const events = await fetchEvents(params);
         if (events.length !== 0) {
-            dispatch(saveEvents(events));
+            if (settings?.rewrite === true) {
+                dispatch(rewriteEvents(events));
+            } else {
+                dispatch(addEvents(events));
+            }
         }
-    }
+    };
 };
