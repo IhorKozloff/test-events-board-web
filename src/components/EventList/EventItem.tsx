@@ -3,13 +3,13 @@ import { IEvent } from '../../storage/slices/eventsSlice';
 import { EventCTAbar } from './EventCTAbar';
 
 interface IProps {
-    itemData: Omit<IEvent, 'id'>
+    itemData: IEvent
 }
 export const EventItem = ({itemData}: IProps) => {
     const { title, organizer, description, eventDate, event_available_status} = itemData;
     
     return (
-        <div className="w-[280px] h-[330px] border-2 border-solid border-black rounded-md px-2 pt-2 pb-4 flex flex-col justify-between">
+        <div className="w-[280px] h-[330px] border-2 border-solid border-black rounded-md px-2 pt-2 pb-4 flex flex-col justify-between bg-custom-white">
             <div>
                 <div className="text-sm font-bold">{dateHumanize(eventDate)}</div>
                 <h3 className="">{title}</h3>
@@ -21,7 +21,7 @@ export const EventItem = ({itemData}: IProps) => {
             
             <div>
                 <div className="text-xs font-bold mb-2">Organizer: <span className="font-medium text-headerTertiary">{organizer}</span></div>
-                <EventCTAbar/>
+                <EventCTAbar linkId={itemData.id}/>
             </div>
         </div>
     );

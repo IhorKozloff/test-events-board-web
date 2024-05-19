@@ -7,7 +7,7 @@ export const Layout = () => {
         <>
             <Header/>
             
-            <main className="min-h-[100vh] flex flex-col items-center justify-start">
+            <main className="min-h-[100vh] flex flex-col items-center justify-start bg-[#A9A9A9]">
                 <Outlet/>
             </main>
 

@@ -1,15 +1,18 @@
-import { config } from "../../config"
-import { useAppSelector, useAppDispatch } from "../../hooks/useSelectorAndDispatch"
-import { setSortOption, setSortDirection } from "../../storage/slices/sortSettingsSlice";
-import { CustomSelect } from "./SelectButton/CustomSelect"
+import { config } from '../../config';
+import { useFetchEventsAndStorageSave } from '../../hooks/useFetchEventsAndStorageSave';
+import { useAppSelector, useAppDispatch } from '../../hooks/useSelectorAndDispatch';
+import { setSortOption, setSortDirection } from '../../storage/slices/sortSettingsSlice';
+import { CustomSelect } from './SelectButton/CustomSelect';
 
-interface IProps {
-    onApplyBtnClick: () => void;
-}
-export const SortBar = ({ onApplyBtnClick }: IProps) => {
+export const SortBar = () => {
 
     const {sort_options, sort_direction} = useAppSelector(state => state.sortSettings);
     const dispatch = useAppDispatch();
+    const fetchEvents = useFetchEventsAndStorageSave();
+    
+    const sortSettingsApplyHandler = () => {
+        fetchEvents({rewrite: true});
+    };
 
     const onSortOptionsSelectChange = (value: string) => {
         dispatch(setSortOption(value));
@@ -20,7 +23,7 @@ export const SortBar = ({ onApplyBtnClick }: IProps) => {
     };
 
     return (
-        <div className="w-full border-2 border-solid border-black flex gap-8 items-center">
+        <div className="w-full flex gap-8 items-center">
             <div className="sort-value-select w-[300px]">
                 <CustomSelect 
                     items={config.CONSTANTS.SORT.sortOptionsDataSet}
@@ -28,21 +31,21 @@ export const SortBar = ({ onApplyBtnClick }: IProps) => {
                 />
             </div>
 
-{sort_options !== null && <div className="sort-direction-select sort-value-select w-[200px]">
+            {sort_options !== null && <div className="sort-direction-select sort-value-select w-[200px]">
                 <CustomSelect 
                     items={config.CONSTANTS.SORT.sortDirectionssDataSet}
                     changeValue={onSortDirectionSelectChange}
                 />
             </div>}
 
-{sort_options !== null && sort_direction !== null && <div className="apply-btn">
+            {sort_options !== null && sort_direction !== null && <div className="apply-btn">
                 <button 
                     type="button"
-                    onClick={onApplyBtnClick} 
+                    onClick={sortSettingsApplyHandler} 
                     className="w-[60px] h-[36px] bg-[#4f46e5] rounded-md text-[#FFF] font-bold flex items-center justify-center hover:scale-105">
                         Apply
                 </button>
             </div>}
         </div>
-    )
-}
+    );
+};

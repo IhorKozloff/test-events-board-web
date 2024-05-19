@@ -24,7 +24,7 @@ export const SelectBtn = styled.button`
     //font-weight: var(--regular);
     font-size: 16px;
     line-height: 1.47;
-    background: none;
+    background: white;
     cursor: pointer;
     outline: none;
     & svg {
