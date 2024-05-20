@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useFetchEventsAndStorageSave } from '../hooks/useFetchEventsAndStorageSave';
 import { useAppSelector } from '../hooks/useSelectorAndDispatch';
 import { EventList } from '../components/EventList';
@@ -10,8 +10,6 @@ export const HomePage = () => {
 
     const {list: eventsState, total_count_events} = useAppSelector(state => state.events);
     const fetchEvents = useFetchEventsAndStorageSave();
-
-    const [isLoading, setIsLoading] = useState(false);
     
     const {ref, inView} = useInView({
         threshold: 0.5,
@@ -28,14 +26,12 @@ export const HomePage = () => {
         if (total_count_events === eventsState.length) {
             return;
         }
-        if (inView && !isLoading) {
-            setIsLoading(true);
-            fetchEvents().finally(() => {
-                setIsLoading(false);
-            });
+        if (inView) {
+
+            fetchEvents();
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[inView, isLoading]);
+    },[inView]);
 
     return (
         <>

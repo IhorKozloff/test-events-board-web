@@ -11,19 +11,20 @@ interface IProps {
 export const EventDetails = ({ eventId }: IProps) => {
 
     const currentEventDetails = useAppSelector(state => state.events.event_details);
-
     const fetchEventInfo = useFetchEventDetailsAndStorageSave();
 
     useEffect(() => {
-        
+
         if (currentEventDetails !== null) {
             return;
         };
+
         fetchEventInfo(eventId);
+
     }, [currentEventDetails, eventId, fetchEventInfo]);
 
     return (
-        <div className="bg-custom-white py-6 px-10 rounded-md min-h-[100vh]">
+        <div className="bg-custom-white py-6 px-10 rounded-md min-h-[100vh] relative">
             {currentEventDetails && <div>
                 <span className="text-orange font-medium">{dateHumanize(currentEventDetails.eventDate)}</span>
                 <h2 className="mb-10">{`${currentEventDetails.title} ${new Date(currentEventDetails.eventDate).getFullYear()}`}</h2>

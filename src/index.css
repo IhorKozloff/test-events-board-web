@@ -16,5 +16,10 @@
 
 .container {
     width: 1280px;
-    border: 1px solid green;
+}
+.header-w {
+    background-image: url('./img/headerWallpaper.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }

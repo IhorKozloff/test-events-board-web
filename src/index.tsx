@@ -4,7 +4,6 @@ import './index.css';
 import App from './App';
 import { BrowserRouter, HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-// import { PersistGate } from 'redux-persist/integration/react';
 import { globalStore } from './storage';
 
 const root = ReactDOM.createRoot(
@@ -12,13 +11,12 @@ const root = ReactDOM.createRoot(
 );
 root.render(
 
+    <Provider store={globalStore}>
 
-        <Provider store={globalStore}>
-            {/* <PersistGate loading={null} persistor={persistor}> */}
-                <BrowserRouter basename="">
-                    <App />
-                </BrowserRouter>
-            {/* </PersistGate> */}
-        </Provider> 
+        <BrowserRouter basename="">
+            <App />
+        </BrowserRouter>
+
+    </Provider> 
 
 );

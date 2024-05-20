@@ -6,7 +6,7 @@ export const EventList = () => {
 
     return (<>
         <ul className="flex flex-wrap justify-between gap-4">
-            {eventsState.map((item, index) => {
+            {eventsState.map(item => {
                 return (<li key={item.id} className="cursor-pointer hover:scale-105 transition duration-150 ease-out hover:ease-in">
                     <EventItem 
                         itemData={item}

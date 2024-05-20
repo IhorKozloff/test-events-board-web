@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { config } from '../config';
 import { IEventsFetcnDataResponse, IEventsRequestParams } from '../types';
-const BASE_URL = `${config.serverUrls.local}`;
+const BASE_URL = `${config.serverUrls.remote}`;
 
 export const fetchEvents = async (params?: IEventsRequestParams): Promise<IEventsFetcnDataResponse> => {
     let queryString = '';

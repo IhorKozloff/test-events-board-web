@@ -15,7 +15,8 @@ module.exports = {
             'orange-md': '#FFDEAD',
             'dark-blue': '#191970',
             'blue-md': '#6495ED',
-            'black': '#000'
+            'black': '#000',
+            'red': '#FF0000'
         },
     },
     plugins: [

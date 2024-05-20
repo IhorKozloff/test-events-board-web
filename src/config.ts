@@ -1,7 +1,7 @@
 export const config = {
     serverUrls: {
         local: 'http://localhost:3001',
-        remote: ''
+        remote: 'https://test-events-board-backend.onrender.com'
     },
     CONSTANTS: {
         SORT: {
