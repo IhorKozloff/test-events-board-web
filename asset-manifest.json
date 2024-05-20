@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/test-events-board-web/static/css/main.b2bd8f6f.css",
-    "main.js": "/test-events-board-web/static/js/main.0ea40761.js",
+    "main.js": "/test-events-board-web/static/js/main.9faf6816.js",
     "static/media/headerWallpaper.jpg": "/test-events-board-web/static/media/headerWallpaper.aab363a47293a195be52.jpg",
     "index.html": "/test-events-board-web/index.html",
     "main.b2bd8f6f.css.map": "/test-events-board-web/static/css/main.b2bd8f6f.css.map",
-    "main.0ea40761.js.map": "/test-events-board-web/static/js/main.0ea40761.js.map"
+    "main.9faf6816.js.map": "/test-events-board-web/static/js/main.9faf6816.js.map"
   },
   "entrypoints": [
     "static/css/main.b2bd8f6f.css",
-    "static/js/main.0ea40761.js"
+    "static/js/main.9faf6816.js"
   ]
 }
