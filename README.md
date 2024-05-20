@@ -7,5 +7,5 @@ The server files can be found at the link here [BackEnd Repo](https://github.com
     There is also pagination, which is performed in the form of dynamic loading of data by scrolling.
   - Event Details Page - receives extended data on the event ID, information is displayed on the page including registered users.
   - Register Page - The page is a user registration form for a specific event. Validation was performed on the client and server parts of the project.  
-## The project can be viewed by clicking on the link:
-[Event Board](https://ihorkozloff.github.io/test-events-board-web/#/test-events-board-web)
+## The project can be viewed by clicking on the link: [Event Board](https://ihorkozloff.github.io/test-events-board-web/#/test-events-board-web)
+
